@@ -1,0 +1,174 @@
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* Custom attribute */
+  :root{
+    /* Colours */
+    --primary1:hsl(215, 51%, 70%); 
+    --primary2:hsl(178, 100%, 50%);
+    --neutral1:hsl(217, 54%, 11%);  /*Main Background*/
+    --neutral2:hsl(216, 50%, 16%);  /*Card Background*/
+    --neutral3:hsl(215, 32%, 27%);  /*Line*/
+    --neutral4:hsl(0, 0%, 100%);
+
+    /* Font */
+    --defaultFontSize:1.125rem;
+    --smallFontSize:calc(var(--defaultFontSize)/1.40625); /*font-size:0.8rem;*/
+    --mainfont:'Outfit', sans-serif;
+    --weight-bolder:600;
+    --weight-bold:400;
+    --weight-normal:300;
+
+  }
+
+  body{
+    font-size: var(--defaultFontSize);
+    font-family: var(--mainfont);
+    margin:1.5rem;
+    background-color: var(--neutral1);
+    color: var(--primary1);
+    font-weight: var(--weight-normal);
+  }
+
+  
+  .product{
+    --productGap:0.7rem;
+    --productpadding:1.5rem;
+    
+    display:grid;
+    gap:var(--productGap);
+    padding:var(--productpadding);
+    background-color: var(--neutral2);
+    border-radius: 0.7rem;
+    box-shadow: 1rem 1rem 1rem hsl(217, 54%, 10%),-1rem -1rem 1rem hsl(217, 54%, 10%);
+  }
+
+  .product__image{
+    border-radius: 0.5rem;
+    position: relative;
+  }
+  .imageDiv{ /* background image */
+    background-color: var(--primary2);
+    border-radius: 0.5rem;
+    display:grid;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  
+
+  .product__title{
+    color:var(--neutral4);
+    font-weight: var(--weight-bolder);
+    font-size: var(--defaultFontSize);
+  }
+
+  .product p{
+    font-size: var(--smallFontSize);
+  }
+
+  .cost-flex img{
+    display: inline;
+    position:relative;
+    top:3px;
+    padding-right:0.2rem;
+  }
+
+  .cost-flex{
+    display:flex;
+    justify-content: space-between;
+    font-weight: var(--weight-bolder);
+    font-size: 0.8rem;
+  }
+  
+  .cost{
+    color:var(--primary2)
+  }
+
+  hr{border:solid 0.05rem var(--neutral3);}
+  
+  .author-flex{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    gap:var(--productGap);
+  }
+ 
+  .profile{
+    height: calc(var(--defaultFontSize)*1.6);
+    border:white solid 0.1rem;
+    border-radius: 50%;
+  }
+
+  .product span{
+    color:var(--neutral4);
+  }
+
+  /* active states */
+  h1:is(:hover, :focus), span:is(:hover, :focus), .imageDiv:is(:hover, :focus) {
+    color: var(--primary2);
+    cursor: pointer;
+}
+
+    
+  .imageDiv:is(:hover,:focus) .view{
+   opacity: 1;
+  }
+
+  .imageDiv:is(:hover,:focus) .product__image{
+    opacity: 0.5;
+  }
+
+  .view{ /* Background big brother eye */
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    opacity: 0;
+    z-index: 100;
+  }
+
+  
+
+  /* non-mobile view */
+
+  @media (min-width:336px){
+    .product{
+      max-width: calc(var(--defaultFontSize)*16); /*18rem*/
+    }
+
+    main{
+      display:grid;
+      place-content: center;
+      height:97vh;
+    }
+    body{
+      margin:0;
+    }
+    
+  }
